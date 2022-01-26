@@ -1,0 +1,81 @@
+spring:
+  application:
+    name: Spring Boot JWT Authentication
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${jdbc_url}
+    username: ${bd4c124e495fc9}
+    password: ${2b21015f}
+    hikari:
+      connection-timeout: 60000
+      idle-timeout: 90000
+      max-lifetime: 120000
+      keepalive-time: 30000
+      minimum-idle: 5
+      maximum-pool-size: 20
+      pool-name: connection-pool
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  h2:
+    console:
+      enabled: false
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+    encoding:
+      charset: UTF-8
+  error:
+    include-binding-errors: never
+    include-message: always
+    include-stacktrace: never
+    include-exception: false
+
+application:
+  security:
+    jwt:
+      keystore:
+        location: keys/jwt_authentication.jks
+        password: ${keystore_password}
+      key-alias: ${key_alias}
+      private-key-passphrase: ${private_key_password}
+      access-token:
+        subject: Access Token
+        validity-minutes: 60
+      refresh-token:
+        subject: Refresh Token
+        validity-days: 7
+      token-type: Bearer
+
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    health:
+      show-details: when_authorized
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics
+      cors:
+        allowed-methods: GET, POST, HEAD, OPTIONS,
+        allowed-headers: Authorization, Content-Type
+        allow-credentials: false
+        allowed-origins: "*"
+        max-age: 3600s
+
+info:
+  application:
+    metadata:
+      name: ${spring.application.name}
+      version: 1.0.0
+      description: JWT Authentication Implementation with Spring Boot
+    runtime: ${java.vendor} Java ${java.version}
+    developer:
+      name: Syed Riadh Hossen
+      email: hossensyedriadh@gmail.com
+      url: https://github.com/hossensyedriadh

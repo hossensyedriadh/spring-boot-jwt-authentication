@@ -1,0 +1,49 @@
+{
+  "properties": [
+    {
+      "name": "application.security.jwt.access-token.subject",
+      "type": "java.lang.String",
+      "description": "Subject of an Access Token."
+    },
+    {
+      "name": "application.security.jwt.access-token.validity-minutes",
+      "type": "java.lang.String",
+      "description": "Number of minutes an Access Token will be valid for."
+    },
+    {
+      "name": "application.security.jwt.refresh-token.subject",
+      "type": "java.lang.String",
+      "description": "Subject of a Refresh Token."
+    },
+    {
+      "name": "application.security.jwt.refresh-token.validity-days",
+      "type": "java.lang.String",
+      "description": "Number of days a Refresh Token will be valid for."
+    },
+    {
+      "name": "application.security.jwt.token-type",
+      "type": "java.lang.String",
+      "description": "Type of the JWTs issued."
+    },
+    {
+      "name": "application.security.jwt.keystore.location",
+      "type": "java.lang.String",
+      "description": "JKS file location for signing JWTs."
+    },
+    {
+      "name": "application.security.jwt.keystore.password",
+      "type": "java.lang.String",
+      "description": "JKS password."
+    },
+    {
+      "name": "application.security.jwt.key-alias",
+      "type": "java.lang.String",
+      "description": "Alias (from JKS) used for JWT signing."
+    },
+    {
+      "name": "application.security.jwt.private-key-passphrase",
+      "type": "java.lang.String",
+      "description": "Private Key password."
+    }
+  ]
+}
